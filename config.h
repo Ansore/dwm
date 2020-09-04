@@ -11,11 +11,13 @@ static const int swallowfloating    = 0;        /* 1 means swallow floating wind
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+static const int vertpad            = 5;       /* vertical padding of bar */
+static const int sidepad            = 5;       /* horizontal padding of bar */
 /* static const char *fonts[]          = { "monospace:size=12", "JoyPixels:pixelsize=14:antialias=true:autohint=true"  }; */
 /* static char dmenufont[]             = "monospace:size=12"; */
-static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=12", "JoyPixels:pixelsize=14:antialias=true:autohint=true"  };
+static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=12", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
 static char dmenufont[]             = "JetBrainsMono Nerd Font:size=12";
-/* static const char *fonts[]          = { "TerminessTTF Nerd Font:size=13", "JoyPixels:pixelsize=14:antialias=true:autohint=true"  }; */
+/* static const char *fonts[]          = { "TerminessTTF Nerd Font:size=13", "JoyPixels:pixelsize=13:antialias=true:autohint=true"  }; */
 /* static const char dmenufont[]       = "TerminessTTF Nerd Font:size=13"; */
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
@@ -23,6 +25,7 @@ static char normfgcolor[]           = "#bbbbbb";
 static char selfgcolor[]            = "#eeeeee";
 static char selbordercolor[]        = "#770000";
 static char selbgcolor[]            = "#005577";
+/* static char selbgcolor[]            = "#3399ff"; */
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
@@ -44,7 +47,9 @@ static Sp scratchpads[] = {
 /* tagging */
 /* static const char *tags[] = { "", "", "", "", "💬", "🍉", "🍌", "🍑", "🍊"}; */
 /* static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; */
-static const char *tags[] = { "", "", "", "", "", "", "", "", ""};
+/* static const char *tags[] = { "", "", "", "", "", "", "", "", ""}; */
+/* static const char *tags[] = { "", "", "", "", "", "", "", "", "", ""}; */
+static const char *tags[] = { "", "", "", "", "", "", "", "", ""};
 /* static const char *tags[] = { "💖", "💘", "🧡", "💛", "💙", "💜", "🤍", "🤎", "🖤"}; */
 /* static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; */
 
@@ -144,7 +149,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_w,		spawn,		SHCMD("st -e sudo nmtui") },
 	{ MODKEY,			XK_e,		spawn,		SHCMD("st -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook") },
 	{ MODKEY|ShiftMask,		XK_e,		spawn,		SHCMD("st -e abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/addressbook") },
-	{ MODKEY,			XK_r,		spawn,		SHCMD("st -e lf") },
+	{ MODKEY,			XK_r,		spawn,		SHCMD("st -e ranger") },
 	{ MODKEY|ShiftMask,		XK_r,		spawn,		SHCMD("st -e htop") },
 	{ MODKEY,			XK_t,		setlayout,	{.v = &layouts[0]} }, /* tile */
 	{ MODKEY|ShiftMask,		XK_t,		setlayout,	{.v = &layouts[1]} }, /* bstack */
